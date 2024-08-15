@@ -126,12 +126,12 @@ void loop() {
 
 int motor4Speed = 2765; // Giả sử tốc độ hiện tại của motor 4 là 2765 (Khoảng 60-70%speed)
 
-  // Kiểm tra nếu tốc độ của motor 4 đạt giá trị lớn nhất
+  // Kiểm tra nếu tốc độ của motor 4 đạt từ 75% trở lên
   if (motor4Speed >= 3071) { // Nếu motor 4 đạt trên 75% speed
-      // Duy trì tốc độ tối đa
+      // Tăng tốc từ giá trị của motor4Speed lên max
       pca9685.setPWM(motorChannel2, 3071, 4095); // Giữ motor 4 ở tốc độ tối đa
   } 
-  // Kiểm tra nếu tốc độ của motor 4 thấp dưới 60%
+  // Kiểm tra nếu tốc độ của motor 4 thấp từ 15% trở xuống 
   else if (motor4Speed < 650) { // Nếu motor 4 đạt dưới khoảng 15% speed 
       // Bật motor 3 quay ngược chiều kim đồng hồ
       digitalWrite(motorPins[2][0], LOW); // Tắt motor 3
@@ -179,9 +179,9 @@ digitalWrite(motorPins[3][1], LOW);
     Servo1.write(servo1 ? 90 : 0); 
     Servo2.write(servo2 ? 90 : 0);
   }  else 
-        if (ps2x.Button(PSB_PAD_DOWN)){ // Nếu nút mũi tên xuống dưới (Pad Down)
+        If (ps2x.Button(PSB_PAD_DOWN)){ // Nếu nút mũi tên xuống dưới (Pad Down)
           Servo1.write(0);
-          Servo2.write(0);
+             Servo2.write(0);
 }
 if (ps2x.ButtonPressed(PSB_CROSS)) {  //sử dụng cho việc thả bóng nhà máy xử lý
         // Thiết lập tốc độ cho động cơ số 4 với 10-15%
